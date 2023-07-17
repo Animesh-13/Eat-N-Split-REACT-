@@ -71,6 +71,7 @@ export default function App() {
         <FormSplitBill
           selectedFriend={selectedFriend}
           onSplitBill={handleSplitBill}
+          key={selectedFriend.id}
         />
       )}
     </div>
@@ -113,7 +114,9 @@ function Friend({ friend, onSelection, selectedFriend }) {
           You and {friend.name} are even {Math.abs(friend.balance)}
         </p>
       )}
-      <Button onClick={() => onSelection(friend)}>Select</Button>
+      <Button onClick={() => onSelection(friend)}>
+        {isSelected ? "close" : "Select"}
+      </Button>
     </li>
   );
 }
